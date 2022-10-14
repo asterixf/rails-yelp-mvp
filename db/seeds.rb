@@ -5,3 +5,16 @@
 #
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
+puts "seeding DB"
+
+20.times do
+restaurant = Restaurant.new(
+  name: Faker::Restaurant.name,
+  address: Faker::Address.street_address,
+  phone_number: Faker::PhoneNumber.phone_number,
+  category: ["chinese", "italian", "japanese", "french", "belgian"].sample
+)
+restaurant.save
+puts "#{restaurant.id} restaurant #{restaurant.name} created"
+end
+puts "DB seeded succesfully!"
